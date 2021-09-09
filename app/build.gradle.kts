@@ -17,7 +17,3 @@ dependencies {
 
     testImplementation(kotlin("test-junit"))
 }
-
-application {
-    mainClass.set("net.dinomite.jackson.test.AppKt")
-}
