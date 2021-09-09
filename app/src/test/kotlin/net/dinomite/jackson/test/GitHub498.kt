@@ -4,8 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.kotlin.readValue
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class GitHub498 {
     private val mapper = ObjectMapper()
@@ -54,12 +53,6 @@ class GitHub498 {
         data class Data(var B: Int)
         mapper.readValue<Data>(json)
     }
-}
-
-class Bar {
-    val mapper = ObjectMapper()
-        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-        .registerKotlinModule()
 
     @Test // ok
     fun lowercaseJsonStringProperty() {
@@ -85,4 +78,3 @@ class Bar {
         mapper.readValue<Data>(json)
     }
 }
-
